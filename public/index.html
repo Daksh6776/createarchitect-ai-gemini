@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CreateArchitect AI — Groq + Gemini</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div id="app">
+    <aside class="sidebar">
+      <div class="logo">
+        <div class="logo-icon">CA</div>
+        <div class="logo-text">
+          <div>CreateArchitect</div>
+          <small>Groq + Gemini</small>
+        </div>
+      </div>
+
+      <button id="new-chat" class="primary-btn">+ New Chat</button>
+
+      <div class="section">
+        <div class="section-title">Projects</div>
+        <div class="row">
+          <input id="project-name" placeholder="Project name..." />
+          <button id="create-project" class="mini-btn">Use</button>
+        </div>
+        <div id="project-list" class="project-list"></div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Mode</div>
+        <select id="mode" class="full-select">
+          <option value="auto">Auto (AI chooses)</option>
+          <option value="create">Create Architect</option>
+          <option value="pro">Pro Modder</option>
+          <option value="general">General</option>
+        </select>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Reply Style</div>
+        <div class="style-grid">
+          <label> Tone
+            <select id="style-tone">
+              <option value="friendly">Friendly</option>
+              <option value="formal">Formal</option>
+              <option value="technical">Technical</option>
+              <option value="casual">Casual</option>
+              <option value="serious">Serious</option>
+            </select>
+          </label>
+          <label> Detail
+            <select id="style-detail">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </label>
+          <label> Emojis
+            <select id="style-emojis">
+              <option value="none">None</option>
+              <option value="some" selected>Some</option>
+              <option value="max">Max</option>
+            </select>
+          </label>
+          <label> Format
+            <select id="style-formatting">
+              <option value="markdown" selected>Markdown</option>
+              <option value="plain">Plain</option>
+              <option value="bullet">Bullet</option>
+              <option value="tutorial">Tutorial</option>
+            </select>
+          </label>
+        </div>
+        <button id="save-style" class="mini-btn full-width">Save Style</button>
+        <small id="style-status"></small>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1>Chat</h1>
+          <p id="status-line">Groq chat • Gemini schematics • Projects & memory enabled</p>
+        </div>
+      </header>
+
+      <section class="chat-container">
+        <div id="chat-log" class="chat-log"></div>
+        <div id="chat-loading" class="chat-loading hidden">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <div class="chat-input-row">
+          <textarea id="chat-input" placeholder="Ask about a Create factory, modding bug, or anything..."></textarea>
+          <button id="send-chat" class="primary-btn">Send</button>
+        </div>
+      </section>
+    </main>
+
+    <aside class="rightbar">
+      <div class="section">
+        <div class="section-title">Schematic Generator</div>
+        <textarea id="schem-input" placeholder="Describe the Create contraption or build you want..."></textarea>
+        <button id="gen-schem" class="mini-btn full-width">Generate JSON</button>
+        <pre id="schem-output" class="schem-output"></pre>
+      </div>
+    </aside>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
